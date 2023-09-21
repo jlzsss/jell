@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rtl88x2bu
-PKG_RELEASE:=5
+PKG_RELEASE:=6
 
 PKG_SOURCE_URL:=https://github.com/morrownr/88x2bu-20210702.git
 PKG_SOURCE_PROTO:=git
