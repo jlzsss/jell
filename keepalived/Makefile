@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=keepalived
-PKG_VERSION:=2.2.7
-PKG_RELEASE:=9
+PKG_VERSION:=2.2.8
+PKG_RELEASE:=10
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://www.keepalived.org/software
