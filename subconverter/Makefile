@@ -5,14 +5,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=subconverter
-PKG_RELEASE:=7
+PKG_RELEASE:=8
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/tindy2013/subconverter.git
-PKG_SOURCE_DATE:=2023-10-09
+PKG_SOURCE_DATE:=2023-10-16
 PKG_SOURCE_VERSION:=null
 PKG_MIRROR_HASH:=skip
-PKG_VERSION:=0.8.0-$(call version_abbrev,$(PKG_SOURCE_VERSION))
+PKG_VERSION:=0.8.1-$(call version_abbrev,$(PKG_SOURCE_VERSION))
 
 PKG_LICENSE:=GPL-3.0
 PKG_LICENSE_FILES:=LICENSE
