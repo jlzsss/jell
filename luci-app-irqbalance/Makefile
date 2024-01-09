@@ -1,18 +1,13 @@
-#
-# Copyright (C) 2022 wulishui <wulishui@gmail.com>
-#
+# Copyright 2023 Puran Lyu <pl2355@nyu.edu>
+# This is free software, licensed under the Apache License, Version 2.0.
 
 include $(TOPDIR)/rules.mk
 
-LUCI_TITLE:=Luci for irqbalance
-LUCI_DEPENDS:=+irqbalance
-LUCI_PKGARCH:=all
+LUCI_TITLE:=LuCI support for irqbalance
+LUCI_DEPENDS:=+luci-base +irqbalance
 
-define Package/luci-app-irqbalance/preinst
-exit 0
-endef
+PKG_LICENSE:=Apache-2.0
 
 include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
-
