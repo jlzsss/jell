@@ -1,6 +1,14 @@
 --- luci-app-passwall/Makefile
 +++ luci-app-passwall/Makefile
-@@ -56,7 +57,7 @@ LUCI_DEPENDS:=+coreutils +coreutils-base64 +coreutils-nohup +curl \
+@@ -35,6 +35,7 @@ PKG_CONFIG_DEPENDS:= \
+ LUCI_TITLE:=LuCI support for PassWall
+ LUCI_PKGARCH:=all
+ LUCI_DEPENDS:=+coreutils +coreutils-base64 +coreutils-nohup +curl \
++	+lua-maxminddb +ipset +ipt2socks +iptables-mod-conntrack-extra +iptables-mod-iprange +iptables-mod-socket +iptables-mod-tproxy +kmod-ipt-nat \
+ 	+chinadns-ng +dns2socks +dns2tcp +ip-full +libuci-lua +lua +luci-compat +luci-lib-jsonc \
+ 	+microsocks +resolveip +tcping +unzip \
+ 	+PACKAGE_$(PKG_NAME)_INCLUDE_Brook:brook \
+@@ -55,7 +56,7 @@ LUCI_DEPENDS:=+coreutils +coreutils-base64 +coreutils-nohup +curl \
  	+PACKAGE_$(PKG_NAME)_INCLUDE_Trojan_Plus:trojan-plus \
  	+PACKAGE_$(PKG_NAME)_INCLUDE_V2ray:v2ray-core \
  	+PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Geodata:v2ray-geoip \
@@ -9,7 +17,7 @@
  	+PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin:v2ray-plugin \
  	+PACKAGE_$(PKG_NAME)_INCLUDE_Xray:xray-core \
  	+PACKAGE_$(PKG_NAME)_INCLUDE_Xray_Plugin:xray-plugin
-@@ -151,11 +152,11 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan_Plus
+@@ -150,11 +151,11 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan_Plus
  
  config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray
  	bool "Include V2ray"
@@ -23,7 +31,7 @@
  
  config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
  	bool "Include V2ray-Plugin (Shadowsocks Plugin)"
-@@ -163,7 +164,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
+@@ -162,7 +163,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray_Plugin
  
  config PACKAGE_$(PKG_NAME)_INCLUDE_Xray
  	bool "Include Xray"
