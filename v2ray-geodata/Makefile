@@ -5,20 +5,20 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-geodata
-PKG_RELEASE:=77
+PKG_RELEASE:=78
 
 PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
 
 include $(INCLUDE_DIR)/package.mk
 
-GEOIP_VER:=202405020039
+GEOIP_VER:=202405090040
 GEOIP_FILE:=geoip.dat.$(GEOIP_VER)
 define Download/geoip
   URL:=https://github.com/v2fly/geoip/releases/download/$(GEOIP_VER)/
   URL_FILE:=geoip.dat
   FILE:=$(GEOIP_FILE)
-  HASH:=2f7516c0f853625e0a7ca932f534eb6d963f4287d4a2c585b1d193b4bb0a0f4f
+  HASH:=ab4ebc8d7363fc354c4a83c443c77ec69b1089b7c37f8ee17e907d2116bfeac8
 endef
 
 GEOSITE_VER:=20240508170917
