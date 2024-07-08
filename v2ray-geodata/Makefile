@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-geodata
-PKG_RELEASE:=104
+PKG_RELEASE:=105
 
 PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
@@ -21,22 +21,22 @@ define Download/geoip
   HASH:=c55f7e9866acb963873b0d907404b395bd3b7447470b5407d79868c3d1c0cb04
 endef
 
-GEOSITE_VER:=20240707162925
+GEOSITE_VER:=20240708041141
 GEOSITE_FILE:=dlc.dat.$(GEOSITE_VER)
 define Download/geosite
   URL:=https://github.com/v2fly/domain-list-community/releases/download/$(GEOSITE_VER)/
   URL_FILE:=dlc.dat
   FILE:=$(GEOSITE_FILE)
-  HASH:=704584832fe7a882740493b9df7ddf99452f1bdf14d99b2d2b190808aaf1768a
+  HASH:=0f6b618816647432f5d6d5b8c4a424cc5258864c6c9d54ffeca9730404939ab4
 endef
 
-GEOSITE_IRAN_VER:=202407010032
+GEOSITE_IRAN_VER:=202407080029
 GEOSITE_IRAN_FILE:=iran.dat.$(GEOSITE_IRAN_VER)
 define Download/geosite-ir
   URL:=https://github.com/bootmortis/iran-hosted-domains/releases/download/$(GEOSITE_IRAN_VER)/
   URL_FILE:=iran.dat
   FILE:=$(GEOSITE_IRAN_FILE)
-  HASH:=1306992448a10f1e1c0c0a566c0bb6057e999a0029bb1004b17763299013b893
+  HASH:=d3c6bd7daab2c720c4c9796c3b31ee7328273cc52b9ff6621e63c5e0513f9a49
 endef
 
 define Package/v2ray-geodata/template
