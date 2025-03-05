@@ -121,7 +121,7 @@ jobs:
           
           ping6 -c 4 ::1 || { echo "::1 is not reachable"; exit 1; }
 
-      - name: Run unit tests
+      - name: Run integration tests
         run: |
           cmake -S . -B build -DUA2F_BUILD_TESTS=OFF -DUA2F_ENABLE_UCI=OFF -DUA2F_ENABLE_ASAN=ON ${{ matrix.cache }}
           cmake --build build
@@ -206,39 +206,3 @@ jobs:
 
       - name: Remove logs
         run: rm -rf logs/ || true
-
-  test-openwrt-docker:
-    name: Test IPK in OpenWrt Docker
-    if: false # Disable this job for now
-    runs-on: ubuntu-latest
-    needs: build
-    strategy:
-      fail-fast: false
-      matrix:
-        version:
-          - 23.05.5
-          - 24.10.0
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Download x86_64 package
-        uses: actions/download-artifact@v4
-        with:
-          name: x86_64-${{ github.sha }}-${{ matrix.version }}-packages
-          path: ./ipk
-
-      - name: Grant permissions
-        run: |
-          chmod +x scripts/test-openwrt-docker.sh
-
-      - name: Run test in OpenWrt Docker
-        run: |
-          docker pull openwrt/rootfs:x86_64-${{ matrix.version }}
-          
-          docker run --privileged --cap-add=NET_ADMIN --cap-add=NET_RAW \
-            -v $(pwd)/ipk:/ipk -v $(pwd)/scripts/test-openwrt-docker.sh:/test-openwrt-docker.sh \
-            openwrt/rootfs:x86_64-${{ matrix.version }} /test-openwrt-docker.sh --debug
-          
-          echo "OpenWrt Docker测试完成"
