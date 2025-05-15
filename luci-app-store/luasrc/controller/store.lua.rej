@@ -1,5 +1,14 @@
 --- luci-app-store/luasrc/controller/store.lua
 +++ luci-app-store/luasrc/controller/store.lua
+@@ -2,7 +2,7 @@ module("luci.controller.store", package.seeall)
+ 
+ local myopkg = "is-opkg"
+ local is_backup = "/usr/libexec/istore/backup"
+-local page_index = {"admin", "store", "pages"}
++local page_index = {"admin", "system", "store"}
+ 
+ function index()
+     local function store_api(action, onlypost)
 @@ -248,7 +247,7 @@ function store_action(param)
          local metapkg = pkg and (metapkgpre .. pkg) or ""
          if action == "update" or pkg then
